@@ -21,7 +21,7 @@
 ///          work, otherwise nothing will happen as the definition will expand
 ///          to nothing.
 
-#ifndef SIMULAR_TOOLING_ENABLE_MACROS
+#ifdef SIMULAR_TOOLING_ENABLE_MACROS
 #define SIMULAR_TOOLING_MEASURE_SCOPE(name) \
     simular::tooling::deferred_timing_probe dtp(name)
 
