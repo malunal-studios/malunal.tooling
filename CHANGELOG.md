@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2024-08-05
+
+### Changed
+
+- Profiler, events, and probes now use `std::string` instead of `std::string_view` because dynamic strings may be provided and may not exist the lifetime of these objects.
+- Example uses newly added utility function for getting source code location.
+
+### Added
+
+- Utility function for getting the current source code location.
+- Utility macros which can be expanded by defining `SIMULAR_TOOLING_ENABLE_MACROS`. If left undefined, the macros will not expand and produce no code.
+
+### Removed
+
+- Erroneous `std::string_view` field of `simular::tooling::timeline`.
+
 ## [1.0.0] - 2024-08-05
 
 ### Added

@@ -9,3 +9,22 @@
 #include "tooling/visitors.hpp"
 #include "tooling/profiler.hpp"
 #include "tooling/probes.hpp"
+#include "tooling/utilities.hpp"
+
+/// @def     SIMULAR_TOOLING_MEASURE_SCOPE(name)
+/// @brief   Measures the timing of an arbitrary scope.
+/// @details Calls into the tooling library to capture the timing for the given
+///          scope and provides it to the tooling library profiler when the
+///          scope closes.
+/// @param   name The string name provided for the scope.
+/// @remarks SIMULAR_TOOLING_ENABLE_MACROS must be defined in order for this to
+///          work, otherwise nothing will happen as the definition will expand
+///          to nothing.
+
+#ifndef SIMULAR_TOOLING_ENABLE_MACROS
+#define SIMULAR_TOOLING_MEASURE_SCOPE(name) \
+    simular::tooling::deferred_timing_probe dtp(name)
+
+#else
+#define SIMULAR_TOOLING_MEASURE_SCOPE(name)
+#endif /* SIMULAR_TOOLING_ENABLE_MACROS */

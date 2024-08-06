@@ -5,7 +5,7 @@ static void
 fun2() noexcept {
     using namespace std::chrono_literals;
     using namespace simular::tooling;
-    deferred_timing_probe tp("fun2");
+    deferred_timing_probe tp(current_source_location());
 
     // Simulate more processing.
     std::this_thread::sleep_for(1000ms);
@@ -16,7 +16,7 @@ static void
 fun1() noexcept {
     using namespace std::chrono_literals;
     using namespace simular::tooling;
-    deferred_timing_probe tp("fun1");
+    deferred_timing_probe tp(current_source_location());
     
     // Simulate processing.
     std::this_thread::sleep_for(100ms);

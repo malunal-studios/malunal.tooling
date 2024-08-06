@@ -44,7 +44,7 @@ struct timing_probe {
     /// @remarks Since this version is the default specialization, and it is
     ///          a deferring probe, we must grab the time now and when this
     ///          instance is destroyed.
-    timing_probe(std::string_view name) noexcept
+    timing_probe(const std::string& name) noexcept
         : name_{ name }
         , start_{ perf_clock_t::now() }
     { }
@@ -69,7 +69,7 @@ struct timing_probe {
     }
 
 private:
-    std::string_view name_;
+    std::string name_;
     time_point_t start_;
 };
 
@@ -87,7 +87,7 @@ struct timing_probe<probe_type::classic> {
     /// @details This is the non-deferring timing probe, so this is provided to
     ///          allow the creator of the probe to measure multiple times.
     void
-    start(std::string_view name) const noexcept {
+    start(const std::string& name) const noexcept {
         name_ = name;
         start_ = perf_clock_t::now();
     }
@@ -113,7 +113,7 @@ struct timing_probe<probe_type::classic> {
 
 private:
     // Don't look at me like that
-    mutable std::string_view name_;
+    mutable std::string name_;
     mutable time_point_t start_;
 };
 

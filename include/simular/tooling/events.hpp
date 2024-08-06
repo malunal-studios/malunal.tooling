@@ -18,7 +18,7 @@ struct timing_event final {
     /// @brief   The name of the event that took place.
     /// @details This will likely be provided by a probe but can be set manually
     ///          when providing events manually to the profiler.
-    std::string_view name;
+    std::string name;
 
     /// @brief   The ID of the thread that the event took place on.
     /// @details It's important for the timeline to know what thread the event

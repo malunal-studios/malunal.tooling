@@ -38,7 +38,7 @@ struct profiler final {
     ///          queue periodically when new events are recorded.
     /// @param   name The name of the session that is being started.
     static void
-    start_session(std::string_view name) noexcept {
+    start_session(const std::string& name) noexcept {
         auto& inst = instance();
         inst.running_ = true;
         inst.session_name_ = name;
@@ -123,7 +123,7 @@ private:
     timeline timeline_;
     std::mutex mutex_;
     std::thread event_thread_;
-    std::string_view session_name_;
+    std::string session_name_;
     std::atomic<bool> running_{false};
 };
 

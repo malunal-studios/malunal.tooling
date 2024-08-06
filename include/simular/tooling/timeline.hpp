@@ -47,7 +47,6 @@ struct timeline final {
     timeline(timeline&& other) noexcept
         : mutex_{ }
         , events_{ std::move(other.events_) }
-        , name_{ std::move(other.name_) }
     { }
 
     /// @brief   Move assignment operator for transferring data efficiently.
@@ -56,7 +55,6 @@ struct timeline final {
     timeline&
     operator=(timeline&& other) noexcept {
         events_ = std::move(other.events_);
-        name_   = std::move(other.name_);
         return *this;
     }
 
@@ -258,7 +256,6 @@ struct timeline final {
 private:
     std::mutex mutex_;
     std::vector<event_variant_t> events_;
-    std::string_view name_;
 };
 
 } // namespace simular::tooling
