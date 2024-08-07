@@ -3,22 +3,20 @@
 
 static void
 fun2() noexcept {
-    using namespace std::chrono_literals;
-    using namespace simular::tooling;
-    deferred_timing_probe tp(current_source_location());
+    SIMULAR_TOOLING_MEASURE_FUNCTION;
 
     // Simulate more processing.
+    using namespace std::chrono_literals;
     std::this_thread::sleep_for(1000ms);
     std::cout << "Finished!" << std::endl;
 }
 
 static void
 fun1() noexcept {
-    using namespace std::chrono_literals;
-    using namespace simular::tooling;
-    deferred_timing_probe tp(current_source_location());
+    SIMULAR_TOOLING_MEASURE_FUNCTION;
     
     // Simulate processing.
+    using namespace std::chrono_literals;
     std::this_thread::sleep_for(100ms);
     fun2();
 }

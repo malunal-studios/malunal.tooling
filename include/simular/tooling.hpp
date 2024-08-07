@@ -25,6 +25,10 @@
 #define SIMULAR_TOOLING_MEASURE_SCOPE(name) \
     simular::tooling::deferred_timing_probe dtp(name)
 
+#define SIMULAR_TOOLING_MEASURE_FUNCTION    \
+    simular::tooling::deferred_timing_probe \
+        dtp(simular::tooling::current_source_location())
 #else
 #define SIMULAR_TOOLING_MEASURE_SCOPE(name)
+#define SIMULAR_TOOLING_MEASURE_FUNCTION
 #endif /* SIMULAR_TOOLING_ENABLE_MACROS */

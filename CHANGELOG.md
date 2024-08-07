@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2024-08-07
+
+### Changed
+
+- Replaced `build.sh` with `build.py` for cross platform purposes and better argument support.
+- Adjusted example file to use new `SIMULAR_TOOLING_MEASURE_FUNCTION` macro.
+- Added `SIMULAR_TOOLING_ENABLE_MACROS` to compile definitions for example file.
+- Updated readme to mention that example in README is based on example file.
+
+### Added
+
+- Macro specifically for testing a function. Will not call anything when `SIMULAR_TOOLING_ENABLE_MACROS` is not defined.
+
 ## [1.0.1] - 2024-08-05
 
 ### Changed
