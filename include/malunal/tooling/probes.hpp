@@ -1,11 +1,11 @@
 /// @file   probes.hpp
 /// @brief  Contains the different types of probes for the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   Defines the type of probe that one should abide by.
 /// @details This is used in the specialization of probes as a manner of
@@ -128,4 +128,4 @@ using deferred_timing_probe = timing_probe<probe_type::deferred>;
 ///          specifying the `probe_type` template argument explicitly.
 using classic_timing_probe = timing_probe<probe_type::classic>;
 
-} // namespace simular::perf
+} // namespace malunal::perf

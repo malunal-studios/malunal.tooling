@@ -1,7 +1,7 @@
 /// @file   common.hpp
 /// @brief  Contains common objects for the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 #include <atomic>
 #include <chrono>
@@ -19,7 +19,7 @@
 #include <variant>
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   Ease of use type definition for absurdly long qualified type name
 ///          of `std::chrono::steady_clock`.
@@ -42,4 +42,4 @@ using perf_clock_t = std::chrono::steady_clock;
 ///          given timing event.
 using time_point_t = perf_clock_t::time_point;
 
-} // namespace simular::tooling
+} // namespace malunal::tooling

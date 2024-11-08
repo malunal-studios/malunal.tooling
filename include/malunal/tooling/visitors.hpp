@@ -2,11 +2,11 @@
 /// @brief  Contains some visitors that can be used on a timeline of the
 //          performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   A visitor responsible for visiting each event of a timeline and
 ///          collecting it into a YAML array that can be dumped to a file.
@@ -60,4 +60,4 @@ private:
     std::ostringstream oss;
 };
 
-} // namespace simular::tooling
+} // namespace malunal::tooling

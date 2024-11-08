@@ -1,11 +1,11 @@
 /// @file   utilities.hpp
 /// @brief  Contains some utilities for users of the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   Obtains the current source location and creates a string out of
 ///          that location.
@@ -29,4 +29,4 @@ current_source_location(
     return oss.str();
 }
 
-} // namespace simular::tooling
+} // namespace malunal::tooling

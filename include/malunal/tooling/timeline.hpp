@@ -1,11 +1,11 @@
 /// @file   timeline.hpp
 /// @brief  Contains the defintion of a timeline for the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 namespace detail {
 
 /// @brief   Defines a function pointer using the provided type, that returns
@@ -26,7 +26,7 @@ concept TimelineVisitor = requires {
     { &Visitor::visit } -> std::same_as<visitor_visit_node_fn<Visitor>>;
 };
 
-} // namespace simular::tooling::detail
+} // namespace malunal::tooling::detail
 
 
 /// @brief   A structure for storing information about a timeline of events.
@@ -258,4 +258,4 @@ private:
     std::vector<event_variant_t> events_;
 };
 
-} // namespace simular::tooling
+} // namespace malunal::tooling

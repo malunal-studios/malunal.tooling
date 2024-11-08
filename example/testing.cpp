@@ -1,9 +1,9 @@
 #include <iostream>
-#include <simular/tooling.hpp>
+#include <malunal/tooling.hpp>
 
 static void
 fun2() noexcept {
-    SIMULAR_TOOLING_MEASURE_FUNCTION;
+    MALUNAL_TOOLING_MEASURE_FUNCTION;
 
     // Simulate more processing.
     using namespace std::chrono_literals;
@@ -13,7 +13,7 @@ fun2() noexcept {
 
 static void
 fun1() noexcept {
-    SIMULAR_TOOLING_MEASURE_FUNCTION;
+    MALUNAL_TOOLING_MEASURE_FUNCTION;
     
     // Simulate processing.
     using namespace std::chrono_literals;
@@ -23,7 +23,7 @@ fun1() noexcept {
 
 int
 main() {
-    using namespace simular::tooling;
+    using namespace malunal::tooling;
     profiler::start_session("Testing");
     fun1();
 

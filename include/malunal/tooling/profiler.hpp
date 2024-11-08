@@ -1,11 +1,11 @@
 /// @file   profiler.hpp
 /// @brief  Contains the profiler used with the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   Responsible for tracking all profiling data necessary for the
 ///          loading and graphing of that data in another application.
@@ -127,4 +127,4 @@ private:
     std::atomic<bool> running_{false};
 };
 
-} // namespace simular::perf
+} // namespace malunal::perf

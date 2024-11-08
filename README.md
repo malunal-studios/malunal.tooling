@@ -1,22 +1,22 @@
-# Simular.Tooling
+# Malunal.Tooling
 
-A header-only, instrumentation profiling, and general performance tooling, toolkit for projects under Simular Technologies. This is not meant to be a massively comprehensive toolkit, rather, it is meant to get the job done and not be invasive to the code that will be tooled.
+A header-only, instrumentation profiling, and general performance tooling, toolkit for projects under Malunal Studios. This is not meant to be a massively comprehensive toolkit, rather, it is meant to get the job done and not be invasive to the code that will be tooled.
 
 ### Requirements
 
-To use this library, you'll need a compiler that supports `__cpp_concepts` which is generally supported in C++20 or higher compatible compilers. You'll also need CMake `>=3.16`, because we intend to support precompiled headers and that is the first version of CMake that supports it. In the future, CMake support may be dropped or deprecated depending on the progress of our other projects; namely `simular.cherry` and `simular.cpak`.
+To use this library, you'll need a compiler that supports `__cpp_concepts` which is generally supported in C++20 or higher compatible compilers. You'll also need CMake `>=3.16`, because we intend to support precompiled headers and that is the first version of CMake that supports it. In the future, CMake support may be dropped or deprecated depending on the progress of our other projects; namely `malunal.cherry` and `malunal.cpak`.
 
 ### Usage
 
-As mentioned, this project is meant to be as uninvasive as possible (relatively speaking for instrumentation). There is a [profiler](./include/simular/tooling/profiler.hpp) that handles the collection of [timeline](./include/simular/tooling/timeline.hpp) [events](./include/simular/tooling/events.hpp) and the processing of those events on a thread separate from the main thread. There are [probes](./include/simular/tooling/probes.hpp) which are designed to inform the profiler of the events that take place. Here is the practical example of how to use all of these tools (the following code based on [here](./example/testing.cpp)):
+As mentioned, this project is meant to be as uninvasive as possible (relatively speaking for instrumentation). There is a [profiler](./include/malunal/tooling/profiler.hpp) that handles the collection of [timeline](./include/malunal/tooling/timeline.hpp) [events](./include/malunal/tooling/events.hpp) and the processing of those events on a thread separate from the main thread. There are [probes](./include/malunal/tooling/probes.hpp) which are designed to inform the profiler of the events that take place. Here is the practical example of how to use all of these tools (the following code based on [here](./example/testing.cpp)):
 ```cpp
 #include <iostream>
-#include <simular/tooling.hpp>
+#include <malunal/tooling.hpp>
 
 static void
 fun2() noexcept {
     using namespace std::chrono_literals;
-    using namespace simular::tooling;
+    using namespace malunal::tooling;
     deferred_timing_probe tp("fun2");
 
     // Simulate more processing.
@@ -27,7 +27,7 @@ fun2() noexcept {
 static void
 fun1() noexcept {
     using namespace std::chrono_literals;
-    using namespace simular::tooling;
+    using namespace malunal::tooling;
     deferred_timing_probe tp("fun1");
     
     // Simulate processing.
@@ -37,7 +37,7 @@ fun1() noexcept {
 
 int
 main() {
-    using namespace simular::tooling;
+    using namespace malunal::tooling;
     profiler::start_session("Testing");
     fun1();
 
@@ -52,9 +52,9 @@ main() {
 
 If you need your own events, visitors, probes, etc. it's relatively easy to do this yourself, but you'll need to touch a couple of the headers to do so. Below describes what you'll need to do as well as an example of an extension.
 
-- [events.hpp](./include/simular/tooling/events.hpp) To add your event type or modify existing ones as well as update the definition of `event_variant_t` to accept any new events that you add.
-- [probes.hpp](./include/simular/tooling/probes.hpp) To modify or add a probe that sends your custom event to the profiler.
-- [visitors.hpp](./include/simular/tooling/visitors.hpp) To modify existing visitors to visitor your event type, or add a new visitor to perform custom logic upon the resulting timeline.
+- [events.hpp](./include/malunal/tooling/events.hpp) To add your event type or modify existing ones as well as update the definition of `event_variant_t` to accept any new events that you add.
+- [probes.hpp](./include/malunal/tooling/probes.hpp) To modify or add a probe that sends your custom event to the profiler.
+- [visitors.hpp](./include/malunal/tooling/visitors.hpp) To modify existing visitors to visitor your event type, or add a new visitor to perform custom logic upon the resulting timeline.
 
 #### Example
 

@@ -1,11 +1,11 @@
 /// @file   events.hpp
 /// @brief  Contains events for the performance tooling.
 /// @author John Christman sorakatadzuma@gmail.com
-/// @copyright 2024 Simular Technologies, LLC.
+/// @copyright 2024 Malunal Studios, LLC.
 #pragma once
 
 
-namespace simular::tooling {
+namespace malunal::tooling {
 
 /// @brief   Represents the event of a timing measurement taking place.
 /// @details Timing events are primarily performed by a timing probe. The probe
@@ -82,4 +82,4 @@ operator!=(const timing_event& lhs, const timing_event& rhs) noexcept {
 ///          yourself.
 using event_variant_t = std::variant<timing_event>;
 
-} // namespace simular::tooling
+} // namespace malunal::tooling
